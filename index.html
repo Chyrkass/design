@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Анна Ковалёва — Веб-дизайнер</title>
+</head>
+<body data-theme="light">
+
+    <!-- Glow blobs -->
+    <div class="glow-blob glow-blob-1"></div>
+    <div class="glow-blob glow-blob-2"></div>
+    <div class="glow-blob glow-blob-3"></div>
+
+    <!-- Particles -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="nav" id="navbar">
+        <a href="#hero" class="nav-essential active">Главная</a>
+        <a href="#about" class="nav-essential">Обо мне</a>
+        <a href="#portfolio">Портфолио</a>
+        <a href="#pricing" class="nav-essential">Цены</a>
+        <a href="#contact">Контакты</a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">
+            <span class="icon sun">☀️</span>
+            <span class="icon moon">🌙</span>
+        </button>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Меню">☰</button>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <div class="hero-text reveal">
+                <p class="greeting">👋 Привет! Я</p>
+                <h1>Анна <span class="highlight">Ковалёва</span></h1>
+                <div class="typing-wrapper">
+                    <span>Я — </span><span class="typing-text" id="typingText"></span>
+                </div>
+                <p style="color:var(--text-secondary);margin-bottom:24px;max-width:480px;">
+                    Создаю современные, удобные и продающие сайты. Более 5 лет опыта в веб-дизайне и разработке интерфейсов.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#pricing" class="btn btn-primary btn-ripple">📋 Смотреть цены</a>
+                    <a href="#contact" class="btn btn-outline">✉️ Связаться</a>
+                </div>
+                <div class="stats-row" style="justify-content:flex-start;margin-top:32px;">
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="120">0</div>
+                        <div class="stat-label">Проектов</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="85">0</div>
+                        <div class="stat-label">Клиентов</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="5">0</div>
+                        <div class="stat-label">Лет опыта</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-photo-wrapper reveal">
+                <div class="photo-frame">
+                    <!-- ЗАМЕНИТЕ src НА СВОЁ ФОТО -->
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=500&fit=crop&crop=face"
+                    alt="Анна Ковалёва — веб-дизайнер"
+                    onerror="this.style.display='none';this.nextElementSibling.style.display='block';"
+                    style="display:block;">
+                    <div class="placeholder-img" style="display:none;"></div>
+                </div>
+                <div class="photo-decor d1"></div>
+                <div class="photo-decor d2"></div>
+                <div class="photo-decor d3"></div>
+                <div class="photo-status">
+                    <span class="status-dot"></span> Открыта к проектам
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="section" id="about">
+        <span class="section-label reveal">Обо мне</span>
+        <h2 class="section-title reveal">Почему выбирают меня</h2>
+        <p class="section-subtitle reveal">Сочетаю креативный дизайн с технической точностью, чтобы создавать сайты, которые работают на ваш бизнес.</p>
+        <div class="cards-grid">
+            <div class="card reveal">
+                <div class="card-icon">🎨</div>
+                <h3>Уникальный дизайн</h3>
+                <p>Каждый проект — это индивидуальное решение. Никаких шаблонов, только свежие идеи под ваш бренд.</p>
+            </div>
+            <div class="card reveal">
+                <div class="card-icon">⚡</div>
+                <h3>Быстрая работа</h3>
+                <p>Соблюдаю дедлайны. Лендинг — от 3 дней, полноценный сайт — от 10 дней. Без потери качества.</p>
+            </div>
+            <div class="card reveal">
+                <div class="card-icon">📱</div>
+                <h3>Адаптивная вёрстка</h3>
+                <p>Все сайты отлично выглядят на любых устройствах: смартфонах, планшетах и десктопах.</p>
+            </div>
+            <div class="card reveal">
+                <div class="card-icon">🔍</div>
+                <h3>SEO-оптимизация</h3>
+                <p>Сайты с правильной структурой, мета-тегами и быстрой загрузкой — для высоких позиций в поиске.</p>
+            </div>
+            <div class="card reveal">
+                <div class="card-icon">🤝</div>
+                <h3>Поддержка 24/7</h3>
+                <p>Я на связи даже после сдачи проекта. Помогаю с обновлениями и консультирую бесплатно.</p>
+            </div>
+            <div class="card reveal">
+                <div class="card-icon">💡</div>
+                <h3>Современные технологии</h3>
+                <p>React, Next.js, Framer Motion, Tailwind — использую актуальный стек для лучшего результата.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="section" style="padding-top:0;">
+        <h2 class="section-title reveal">Мои навыки</h2>
+        <div class="reveal" style="max-width:700px;margin:0 auto;">
+            <div class="skill-bar-wrap">
+                <div class="skill-info"><span>UI/UX Дизайн</span><span>95%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="95"></div></div>
+            </div>
+            <div class="skill-bar-wrap">
+                <div class="skill-info"><span>Figma / Sketch</span><span>90%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+            </div>
+            <div class="skill-bar-wrap">
+                <div class="skill-info"><span>HTML / CSS / JS</span><span>92%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="92"></div></div>
+            </div>
+            <div class="skill-bar-wrap">
+                <div class="skill-info"><span>React / Next.js</span><span>80%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+            </div>
+            <div class="skill-bar-wrap">
+                <div class="skill-info"><span>Webflow / Tilda</span><span>88%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio -->
+    <section class="section" id="portfolio">
+        <span class="section-label reveal">Портфолио</span>
+        <h2 class="section-title reveal">Последние проекты</h2>
+        <p class="section-subtitle reveal">Каждый проект — это история успеха моих клиентов.</p>
+        <div class="portfolio-grid">
+            <div class="portfolio-item reveal">
+                <img class="port-img" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=375&fit=crop" alt="Проект 1" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                <div class="port-placeholder" style="display:none;">🛍️</div>
+                <div class="portfolio-overlay"><span>Интернет-магазин «Lumo»</span></div>
+            </div>
+            <div class="portfolio-item reveal">
+                <img class="port-img" src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=600&h=375&fit=crop" alt="Проект 2" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                <div class="port-placeholder" style="display:none;">📱</div>
+                <div class="portfolio-overlay"><span>Приложение «FitTrack»</span></div>
+            </div>
+            <div class="portfolio-item reveal">
+                <img class="port-img" src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=600&h=375&fit=crop" alt="Проект 3" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                <div class="port-placeholder" style="display:none;">🏢</div>
+                <div class="portfolio-overlay"><span>Корпоративный сайт «NexGen»</span></div>
+            </div>
+            <div class="portfolio-item reveal">
+                <img class="port-img" src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?w=600&h=375&fit=crop" alt="Проект 4" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                <div class="port-placeholder" style="display:none;">🎨</div>
+                <div class="portfolio-overlay"><span>Лендинг «ArtWave»</span></div>
+            </div>
+            <div class="portfolio-item reveal">
+                <img class="port-img" src="https://images.unsplash.com/photo-1559028012-481c04fa702d?w=600&h=375&fit=crop" alt="Проект 5" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                <div class="port-placeholder" style="display:none;">📊</div>
+                <div class="portfolio-overlay"><span>Дашборд «Metrica»</span></div>
+            </div>
+            <div class="portfolio-item reveal">
+                <img class="port-img" src="https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=600&h=375&fit=crop" alt="Проект 6" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                <div class="port-placeholder" style="display:none;">🍽️</div>
+                <div class="portfolio-overlay"><span>Сайт ресторана «Gusto»</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="section" id="pricing">
+        <span class="section-label reveal">Прайс-лист</span>
+        <h2 class="section-title reveal">Тарифы и цены</h2>
+        <p class="section-subtitle reveal">Прозрачные цены без скрытых платежей. Выберите подходящий вариант.</p>
+        <div class="pricing-table-wrap reveal">
+            <table class="pricing-table">
+                <thead>
+                    <tr>
+                        <th>Услуга</th>
+                        <th>Лендинг</th>
+                        <th class="popular">
+                            <span class="badge-popular">🔥 Хит</span>
+                            Бизнес-сайт
+                        </th>
+                        <th>Интернет-магазин</th>
+                        <th>Премиум</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="font-weight:700;text-align:left;">Цена</td>
+                        <td class="price-cell">30 000 ₽</td>
+                        <td class="price-cell" style="color:var(--accent2);">80 000 ₽</td>
+                        <td class="price-cell">150 000 ₽</td>
+                        <td class="price-cell">250 000 ₽</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:left;">Количество страниц</td>
+                        <td>1</td>
+                        <td>до 7</td>
+                        <td>до 20</td>
+                        <td>до 40</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:left;">Адаптивный дизайн</td>
+                        <td class="check">✔</td>
+                        <td class="check">✔</td>
+                        <td class="check">✔</td>
+                        <td class="check">✔</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:left;">Уникальный дизайн</td>
+                        <td class="check">✔</td>
+                        <td class="check">✔</td>
+                        <td class="check">✔</td>
+                        <td class="check">✔</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:left;">SEO-оптимизация</td>
+                        <td>Базовая</td>
+                        <td>Расширенная</td>
+                        <td>Полная</td>
+                        <td>Полная + аудит</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:left;">Копирайтинг</td>
+                        <td class="cross">✘</td>
+                        <td class="check">✔</td>
+                        <td class="check">✔</td>
+                        <td class="check">✔</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:left;">Интеграция с CRM</td>
+                        <td class="cross">✘</td>
+                        <td class="cross">✘</td>
+                        <td class="check">✔</td>
+                        <td class="check">✔</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:left;">Личный кабинет</td>
+                        <td class="cross">✘</td>
+                        <td class="cross">✘</td>
+                        <td class="check">✔</td>
+                        <td class="check">✔</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:left;">Срок разработки</td>
+                        <td>3–5 дней</td>
+                        <td>10–14 дней</td>
+                        <td>20–30 дней</td>
+                        <td>30–45 дней</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:left;">Поддержка</td>
+                        <td>1 месяц</td>
+                        <td>3 месяца</td>
+                        <td>6 месяцев</td>
+                        <td>12 месяцев</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><button class="btn-sm btn-bordered" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Заказать</button></td>
+                        <td><button class="btn-sm btn-accent" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Заказать</button></td>
+                        <td><button class="btn-sm btn-bordered" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Заказать</button></td>
+                        <td><button class="btn-sm btn-accent" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Заказать</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section" id="contact">
+        <span class="section-label reveal">Контакты</span>
+        <h2 class="section-title reveal">Давайте обсудим проект</h2>
+        <div class="contact-grid">
+            <form class="contact-form reveal" id="contactForm" onsubmit="handleSubmit(event)">
+                <div class="input-group">
+                    <input type="text" id="name" placeholder=" " required>
+                    <label for="name">Ваше имя</label>
+                </div>
+                <div class="input-group">
+                    <input type="email" id="email" placeholder=" " required>
+                    <label for="email">Email</label>
+                </div>
+                <div class="input-group">
+                    <input type="tel" id="phone" placeholder=" " required>
+                    <label for="phone">Телефон</label>
+                </div>
+                <div class="input-group">
+                    <textarea id="message" rows="5" placeholder=" " required></textarea>
+                    <label for="message">Опишите проект</label>
+                </div>
+                <button type="submit" class="btn btn-primary btn-ripple" style="width:100%;justify-content:center;">
+                    🚀 Отправить заявку
+                </button>
+                <p id="formSuccess" style="display:none;color:#22c55e;font-weight:700;text-align:center;margin-top:12px;">
+                    ✅ Заявка отправлена! Я свяжусь с вами в ближайшее время.
+                </p>
+            </form>
+            <div class="reveal" style="display:flex;flex-direction:column;gap:20px;">
+                <div class="card">
+                    <div class="card-icon">📧</div>
+                    <h3>Email</h3>
+                    <p style="color:var(--accent);">anna@kovaleva.design</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📞</div>
+                    <h3>Телефон</h3>
+                    <p style="color:var(--accent);">+7 (999) 123-45-67</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">💬</div>
+                    <h3>Telegram</h3>
+                    <p style="color:var(--accent);">@anna_kovaleva</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2025 Анна Ковалёва — Веб-дизайнер. Все права защищены.</p>
+        <p style="margin-top:4px;">Сделано с ❤️ и вниманием к деталям</p>
+    </footer>
+
+    <!-- Back to top -->
+    <button class="back-to-top" id="backToTop" aria-label="Наверх">↑</button>
+
+    <script>
+        (function() {
+            // ===== THEME TOGGLE =====
+            const body = document.body;
+            const themeToggle = document.getElementById('themeToggle');
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            body.setAttribute('data-theme', savedTheme);
+
+            themeToggle.addEventListener('click', () => {
+                const current = body.getAttribute('data-theme');
+                const next = current === 'light' ? 'dark' : 'light';
+                body.setAttribute('data-theme', next);
+                localStorage.setItem('theme', next);
+                updateParticleColors();
+            });
+
+            // ===== PARTICLES =====
+            const canvas = document.getElementById('particles-canvas');
+            const ctx = canvas.getContext('2d');
+            let particles = [];
+            let particleColor = savedTheme === 'dark' ?
+                'rgba(167, 139, 250, 0.3)' :
+                'rgba(108, 60, 240, 0.25)';
+            let particleColor2 = savedTheme === 'dark' ?
+                'rgba(255, 107, 157, 0.25)' :
+                'rgba(255, 60, 120, 0.18)';
+
+            function updateParticleColors() {
+                const theme = body.getAttribute('data-theme');
+                particleColor = theme === 'dark' ?
+                    'rgba(167, 139, 250, 0.3)' :
+                    'rgba(108, 60, 240, 0.25)';
+                particleColor2 = theme === 'dark' ?
+                    'rgba(255, 107, 157, 0.25)' :
+                    'rgba(255, 60, 120, 0.18)';
+                // Update existing particles
+                particles.forEach(p => {
+                    p.color = Math.random() < 0.5 ? particleColor : particleColor2;
+                });
+            }
+
+            function resizeCanvas() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+            resizeCanvas();
+            window.addEventListener('resize', () => {
+                resizeCanvas();
+                initParticles();
+            });
+
+            function initParticles() {
+                const count = Math.min(Math.floor((canvas.width * canvas.height) / 18000), 80);
+                particles = [];
+                for (let i = 0; i < count; i++) {
+                    particles.push({
+                        x: Math.random() * canvas.width,
+                        y: Math.random() * canvas.height,
+                        vx: (Math.random() - 0.5) * 0.5,
+                        vy: (Math.random() - 0.5) * 0.5,
+                        radius: Math.random() * 2.5 + 1,
+                        color: Math.random() < 0.5 ? particleColor : particleColor2,
+                    });
+                }
+            }
+            initParticles();
+
+            function animateParticles() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                particles.forEach(p => {
+                    p.x += p.vx;
+                    p.y += p.vy;
+                    if (p.x < -20) p.x = canvas.width + 20;
+                    if (p.x > canvas.width + 20) p.x = -20;
+                    if (p.y < -20) p.y = canvas.height + 20;
+                    if (p.y > canvas.height + 20) p.y = -20;
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = p.color;
+                    ctx.fill();
+                });
+                // Draw connections
+                for (let i = 0; i < particles.length; i++) {
+                    for (let j = i + 1; j < particles.length; j++) {
+                        const dx = particles[i].x - particles[j].x;
+                        const dy = particles[i].y - particles[j].y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+                        if (dist < 130) {
+                            ctx.beginPath();
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.strokeStyle = particles[i].color.replace('0.3', '0.08')
+                                .replace('0.25', '0.06').replace('0.18', '0.05');
+                            ctx.lineWidth = 0.6;
+                            ctx.stroke();
+                        }
+                    }
+                }
+                requestAnimationFrame(animateParticles);
+            }
+            animateParticles();
+
+            // ===== TYPING EFFECT =====
+            const typingText = document.getElementById('typingText');
+            const phrases = [
+                'веб-дизайнер',
+                'UI/UX проектировщик',
+                'создаю красивые сайты',
+                'фронтенд-разработчик',
+                'дизайнер интерфейсов',
+                'ваш будущий партнёр',
+            ];
+            let phraseIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+            let typeSpeed = 80;
+
+            function typeLoop() {
+                const current = phrases[phraseIndex];
+                if (isDeleting) {
+                    typingText.textContent = current.substring(0, charIndex - 1);
+                    charIndex--;
+                    typeSpeed = 35;
+                } else {
+                    typingText.textContent = current.substring(0, charIndex + 1);
+                    charIndex++;
+                    typeSpeed = 80 + Math.random() * 60;
+                }
+                if (!isDeleting && charIndex === current.length) {
+                    typeSpeed = 2000;
+                    isDeleting = true;
+                } else if (isDeleting && charIndex === 0) {
+                    isDeleting = false;
+                    phraseIndex = (phraseIndex + 1) % phrases.length;
+                    typeSpeed = 400;
+                }
+                setTimeout(typeLoop, typeSpeed);
+            }
+            typeLoop();
+
+            // ===== SCROLL REVEAL =====
+            const revealElements = document.querySelectorAll('.reveal');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        // Animate skill bars
+                        const skillFill = entry.target.querySelector('.skill-fill');
+                        if (skillFill) {
+                            const width = skillFill.getAttribute('data-width');
+                            setTimeout(() => { skillFill.style.width = width + '%'; }, 200);
+                        }
+                        // Animate stat counters
+                        const statNumber = entry.target.querySelector('.stat-number');
+                        if (statNumber && !statNumber.dataset.animated) {
+                            statNumber.dataset.animated = 'true';
+                            const target = parseInt(statNumber.getAttribute('data-count'));
+                            animateCounter(statNumber, target);
+                        }
+                    }
+                });
+            }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+            revealElements.forEach(el => observer.observe(el));
+
+            // Also observe skill bars separately
+            document.querySelectorAll('.skill-fill').forEach(sf => {
+                observer.observe(sf.closest('.reveal') || sf);
+            });
+
+            function animateCounter(el, target) {
+                const duration = 1800;
+                const start = 0;
+                const startTime = performance.now();
+
+                function update(now) {
+                    const elapsed = now - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const eased = 1 - Math.pow(1 - progress, 3);
+                    el.textContent = Math.floor(start + (target - start) * eased);
+                    if (progress < 1) {
+                        requestAnimationFrame(update);
+                    } else {
+                        el.textContent = target + (target === 5 ? '+' : '+');
+                    }
+                }
+                requestAnimationFrame(update);
+            }
+
+            // ===== NAVIGATION =====
+            const navbar = document.getElementById('navbar');
+            const navLinks = navbar.querySelectorAll('a');
+            const backToTop = document.getElementById('backToTop');
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+
+            // Active nav link on scroll
+            const sections = document.querySelectorAll('section[id], .hero[id]');
+            window.addEventListener('scroll', () => {
+                const scrollY = window.scrollY;
+                // Nav shadow
+                if (scrollY > 50) navbar.classList.add('scrolled');
+                else navbar.classList.remove('scrolled');
+                // Back to top
+                if (scrollY > 600) backToTop.classList.add('visible');
+                else backToTop.classList.remove('visible');
+                // Active link
+                let current = '';
+                sections.forEach(s => {
+                    const top = s.offsetTop - 200;
+                    if (scrollY >= top) current = s.getAttribute('id');
+                });
+                navLinks.forEach(a => {
+                    a.classList.remove('active');
+                    if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+                });
+            });
+
+            // Back to top
+            backToTop.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // Mobile menu
+            mobileMenuBtn.addEventListener('click', () => {
+                navbar.classList.toggle('mobile-open');
+                mobileMenuBtn.textContent = navbar.classList.contains('mobile-open') ? '✕' : '☰';
+            });
+            navLinks.forEach(a => {
+                a.addEventListener('click', () => {
+                    navbar.classList.remove('mobile-open');
+                    mobileMenuBtn.textContent = '☰';
+                });
+            });
+
+            // ===== CONTACT FORM =====
+            window.handleSubmit = function(e) {
+                e.preventDefault();
+                const form = document.getElementById('contactForm');
+                const successMsg = document.getElementById('formSuccess');
+                // Simulate submission
+                const btn = form.querySelector('button[type="submit"]');
+                const originalText = btn.textContent;
+                btn.textContent = '⏳ Отправка...';
+                btn.disabled = true;
+                setTimeout(() => {
+                    form.reset();
+                    btn.textContent = originalText;
+                    btn.disabled = false;
+                    successMsg.style.display = 'block';
+                    setTimeout(() => { successMsg.style.display = 'none'; }, 4000);
+                }, 1500);
+            };
+
+            // ===== SMOOTH SCROLL FOR ALL ANCHOR LINKS =====
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href === '#') return;
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+
+            // ===== INITIAL TRIGGER FOR VISIBLE ELEMENTS =====
+            setTimeout(() => {
+                revealElements.forEach(el => {
+                    const rect = el.getBoundingClientRect();
+                    if (rect.top < window.innerHeight && rect.bottom > 0) {
+                        el.classList.add('visible');
+                        const skillFill = el.querySelector('.skill-fill');
+                        if (skillFill) {
+                            skillFill.style.width = skillFill.getAttribute('data-width') + '%';
+                        }
+                        const statNumber = el.querySelector('.stat-number');
+                        if (statNumber && !statNumber.dataset.animated) {
+                            statNumber.dataset.animated = 'true';
+                            animateCounter(statNumber, parseInt(statNumber.getAttribute('data-count')));
+                        }
+                    }
+                });
+            }, 300);
+
+            console.log('%c🦄 Сайт-визитка готов! %cЗамените фото в .photo-frame img на своё.',
+                'font-size:1.2em;color:#a78bfa;', 'color:var(--text-secondary);');
+            console.log('%c💡 Подсказка: %cтема сохраняется в localStorage, попробуйте переключить!',
+                'color:#ff6b9d;', 'color:inherit;');
+        })();
+    </script>
+</body>
+</html>
