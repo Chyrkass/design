@@ -1,0 +1,291 @@
+  <script>
+        (function() {
+            // ===== THEME TOGGLE =====
+            const body = document.body;
+            const themeToggle = document.getElementById('themeToggle');
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            body.setAttribute('data-theme', savedTheme);
+
+            themeToggle.addEventListener('click', () => {
+                const current = body.getAttribute('data-theme');
+                const next = current === 'light' ? 'dark' : 'light';
+                body.setAttribute('data-theme', next);
+                localStorage.setItem('theme', next);
+                updateParticleColors();
+            });
+
+            // ===== PARTICLES =====
+            const canvas = document.getElementById('particles-canvas');
+            const ctx = canvas.getContext('2d');
+            let particles = [];
+            let particleColor = savedTheme === 'dark' ?
+                'rgba(167, 139, 250, 0.3)' :
+                'rgba(108, 60, 240, 0.25)';
+            let particleColor2 = savedTheme === 'dark' ?
+                'rgba(255, 107, 157, 0.25)' :
+                'rgba(255, 60, 120, 0.18)';
+
+            function updateParticleColors() {
+                const theme = body.getAttribute('data-theme');
+                particleColor = theme === 'dark' ?
+                    'rgba(167, 139, 250, 0.3)' :
+                    'rgba(108, 60, 240, 0.25)';
+                particleColor2 = theme === 'dark' ?
+                    'rgba(255, 107, 157, 0.25)' :
+                    'rgba(255, 60, 120, 0.18)';
+                // Update existing particles
+                particles.forEach(p => {
+                    p.color = Math.random() < 0.5 ? particleColor : particleColor2;
+                });
+            }
+
+            function resizeCanvas() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+            resizeCanvas();
+            window.addEventListener('resize', () => {
+                resizeCanvas();
+                initParticles();
+            });
+
+            function initParticles() {
+                const count = Math.min(Math.floor((canvas.width * canvas.height) / 18000), 80);
+                particles = [];
+                for (let i = 0; i < count; i++) {
+                    particles.push({
+                        x: Math.random() * canvas.width,
+                        y: Math.random() * canvas.height,
+                        vx: (Math.random() - 0.5) * 0.5,
+                        vy: (Math.random() - 0.5) * 0.5,
+                        radius: Math.random() * 2.5 + 1,
+                        color: Math.random() < 0.5 ? particleColor : particleColor2,
+                    });
+                }
+            }
+            initParticles();
+
+            function animateParticles() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                particles.forEach(p => {
+                    p.x += p.vx;
+                    p.y += p.vy;
+                    if (p.x < -20) p.x = canvas.width + 20;
+                    if (p.x > canvas.width + 20) p.x = -20;
+                    if (p.y < -20) p.y = canvas.height + 20;
+                    if (p.y > canvas.height + 20) p.y = -20;
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = p.color;
+                    ctx.fill();
+                });
+                // Draw connections
+                for (let i = 0; i < particles.length; i++) {
+                    for (let j = i + 1; j < particles.length; j++) {
+                        const dx = particles[i].x - particles[j].x;
+                        const dy = particles[i].y - particles[j].y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+                        if (dist < 130) {
+                            ctx.beginPath();
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.strokeStyle = particles[i].color.replace('0.3', '0.08')
+                                .replace('0.25', '0.06').replace('0.18', '0.05');
+                            ctx.lineWidth = 0.6;
+                            ctx.stroke();
+                        }
+                    }
+                }
+                requestAnimationFrame(animateParticles);
+            }
+            animateParticles();
+
+            // ===== TYPING EFFECT =====
+            const typingText = document.getElementById('typingText');
+            const phrases = [
+                'веб-дизайнер',
+                'UI/UX проектировщик',
+                'создаю красивые сайты',
+                'фронтенд-разработчик',
+                'дизайнер интерфейсов',
+                'ваш будущий партнёр',
+            ];
+            let phraseIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+            let typeSpeed = 80;
+
+            function typeLoop() {
+                const current = phrases[phraseIndex];
+                if (isDeleting) {
+                    typingText.textContent = current.substring(0, charIndex - 1);
+                    charIndex--;
+                    typeSpeed = 35;
+                } else {
+                    typingText.textContent = current.substring(0, charIndex + 1);
+                    charIndex++;
+                    typeSpeed = 80 + Math.random() * 60;
+                }
+                if (!isDeleting && charIndex === current.length) {
+                    typeSpeed = 2000;
+                    isDeleting = true;
+                } else if (isDeleting && charIndex === 0) {
+                    isDeleting = false;
+                    phraseIndex = (phraseIndex + 1) % phrases.length;
+                    typeSpeed = 400;
+                }
+                setTimeout(typeLoop, typeSpeed);
+            }
+            typeLoop();
+
+            // ===== SCROLL REVEAL =====
+            const revealElements = document.querySelectorAll('.reveal');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        // Animate skill bars
+                        const skillFill = entry.target.querySelector('.skill-fill');
+                        if (skillFill) {
+                            const width = skillFill.getAttribute('data-width');
+                            setTimeout(() => { skillFill.style.width = width + '%'; }, 200);
+                        }
+                        // Animate stat counters
+                        const statNumber = entry.target.querySelector('.stat-number');
+                        if (statNumber && !statNumber.dataset.animated) {
+                            statNumber.dataset.animated = 'true';
+                            const target = parseInt(statNumber.getAttribute('data-count'));
+                            animateCounter(statNumber, target);
+                        }
+                    }
+                });
+            }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+            revealElements.forEach(el => observer.observe(el));
+
+            // Also observe skill bars separately
+            document.querySelectorAll('.skill-fill').forEach(sf => {
+                observer.observe(sf.closest('.reveal') || sf);
+            });
+
+            function animateCounter(el, target) {
+                const duration = 1800;
+                const start = 0;
+                const startTime = performance.now();
+
+                function update(now) {
+                    const elapsed = now - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const eased = 1 - Math.pow(1 - progress, 3);
+                    el.textContent = Math.floor(start + (target - start) * eased);
+                    if (progress < 1) {
+                        requestAnimationFrame(update);
+                    } else {
+                        el.textContent = target + (target === 5 ? '+' : '+');
+                    }
+                }
+                requestAnimationFrame(update);
+            }
+
+            // ===== NAVIGATION =====
+            const navbar = document.getElementById('navbar');
+            const navLinks = navbar.querySelectorAll('a');
+            const backToTop = document.getElementById('backToTop');
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+
+            // Active nav link on scroll
+            const sections = document.querySelectorAll('section[id], .hero[id]');
+            window.addEventListener('scroll', () => {
+                const scrollY = window.scrollY;
+                // Nav shadow
+                if (scrollY > 50) navbar.classList.add('scrolled');
+                else navbar.classList.remove('scrolled');
+                // Back to top
+                if (scrollY > 600) backToTop.classList.add('visible');
+                else backToTop.classList.remove('visible');
+                // Active link
+                let current = '';
+                sections.forEach(s => {
+                    const top = s.offsetTop - 200;
+                    if (scrollY >= top) current = s.getAttribute('id');
+                });
+                navLinks.forEach(a => {
+                    a.classList.remove('active');
+                    if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+                });
+            });
+
+            // Back to top
+            backToTop.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // Mobile menu
+            mobileMenuBtn.addEventListener('click', () => {
+                navbar.classList.toggle('mobile-open');
+                mobileMenuBtn.textContent = navbar.classList.contains('mobile-open') ? '✕' : '☰';
+            });
+            navLinks.forEach(a => {
+                a.addEventListener('click', () => {
+                    navbar.classList.remove('mobile-open');
+                    mobileMenuBtn.textContent = '☰';
+                });
+            });
+
+            // ===== CONTACT FORM =====
+            window.handleSubmit = function(e) {
+                e.preventDefault();
+                const form = document.getElementById('contactForm');
+                const successMsg = document.getElementById('formSuccess');
+                // Simulate submission
+                const btn = form.querySelector('button[type="submit"]');
+                const originalText = btn.textContent;
+                btn.textContent = '⏳ Отправка...';
+                btn.disabled = true;
+                setTimeout(() => {
+                    form.reset();
+                    btn.textContent = originalText;
+                    btn.disabled = false;
+                    successMsg.style.display = 'block';
+                    setTimeout(() => { successMsg.style.display = 'none'; }, 4000);
+                }, 1500);
+            };
+
+            // ===== SMOOTH SCROLL FOR ALL ANCHOR LINKS =====
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href === '#') return;
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+
+            // ===== INITIAL TRIGGER FOR VISIBLE ELEMENTS =====
+            setTimeout(() => {
+                revealElements.forEach(el => {
+                    const rect = el.getBoundingClientRect();
+                    if (rect.top < window.innerHeight && rect.bottom > 0) {
+                        el.classList.add('visible');
+                        const skillFill = el.querySelector('.skill-fill');
+                        if (skillFill) {
+                            skillFill.style.width = skillFill.getAttribute('data-width') + '%';
+                        }
+                        const statNumber = el.querySelector('.stat-number');
+                        if (statNumber && !statNumber.dataset.animated) {
+                            statNumber.dataset.animated = 'true';
+                            animateCounter(statNumber, parseInt(statNumber.getAttribute('data-count')));
+                        }
+                    }
+                });
+            }, 300);
+
+            console.log('%c🦄 Сайт-визитка готов! %cЗамените фото в .photo-frame img на своё.',
+                'font-size:1.2em;color:#a78bfa;', 'color:var(--text-secondary);');
+            console.log('%c💡 Подсказка: %cтема сохраняется в localStorage, попробуйте переключить!',
+                'color:#ff6b9d;', 'color:inherit;');
+        })();
+    </script>
