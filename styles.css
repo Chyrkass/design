@@ -1595,3 +1595,32 @@ body {
       font-size: 1.2rem;
   }
 }
+/* ===== КЛИКАБЕЛЬНЫЕ КОНТАКТЫ ===== */
+.contact-link {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-block;
+  border-bottom: 2px solid transparent;
+}
+
+.contact-link:hover {
+  color: var(--accent2);
+  border-bottom-color: var(--accent2);
+  transform: translateX(4px);
+}
+
+.contact-card {
+  transition: all 0.3s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+}
+
+/* Если нужно убрать стандартное подчёркивание для ссылок в карточках */
+.card .contact-link {
+  text-decoration: none;
+}
