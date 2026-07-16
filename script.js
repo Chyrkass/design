@@ -232,7 +232,7 @@
         });
     });
 
-   // ===== CONTACT FORM (REAL SUBMIT via FormSubmit) =====
+    // ===== CONTACT FORM (REAL SUBMIT via FormSubmit) =====
 window.handleSubmit = async function(e) {
     e.preventDefault();
     const form = document.getElementById('contactForm');
