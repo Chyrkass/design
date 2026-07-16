@@ -425,55 +425,71 @@
         </div>
     </div>
 </div>
-</section>
-    <!-- Contact -->
-    <section class="section" id="contact">
-        <span class="section-label reveal">Контакты</span>
-        <h2 class="section-title reveal">Давайте обсудим проект</h2>
-        <div class="contact-grid">
-            <form class="contact-form reveal" id="contactForm" onsubmit="handleSubmit(event)">
-                <div class="input-group">
-                    <input type="text" id="name" placeholder=" " required>
-                    <label for="name">Ваше имя</label>
-                </div>
-                <div class="input-group">
-                    <input type="email" id="email" placeholder=" " required>
-                    <label for="email">Email</label>
-                </div>
-                <div class="input-group">
-                    <input type="tel" id="phone" placeholder=" " required>
-                    <label for="phone">Телефон</label>
-                </div>
-                <div class="input-group">
-                    <textarea id="message" rows="5" placeholder=" " required></textarea>
-                    <label for="message">Опишите проект</label>
-                </div>
-                <button type="submit" class="btn btn-primary btn-ripple" style="width:100%;justify-content:center;">
-                    🚀 Отправить заявку
-                </button>
-                <p id="formSuccess" style="display:none;color:#22c55e;font-weight:700;text-align:center;margin-top:12px;">
-                    ✅ Заявка отправлена! Я свяжусь с вами в ближайшее время.
-                </p>
-            </form>
-            <div class="reveal" style="display:flex;flex-direction:column;gap:20px;">
-                <div class="card">
-                    <div class="card-icon">📧</div>
-                    <h3>Email</h3>
-                    <p style="color:var(--accent);">angara.ilim.1947@mail.ru</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">📞</div>
-                    <h3>Телефон</h3>
-                    <p style="color:var(--accent);">+7 (924) 713-13-50</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">💬</div>
-                    <h3>Telegram</h3>
-                    <p style="color:var(--accent);">@keshik_to</p>
-                </div>
-            </div>
+<!-- Contact -->
+<section class="section" id="contact">
+<span class="section-label reveal">Контакты</span>
+<h2 class="section-title reveal">Давайте обсудим проект</h2>
+<div class="contact-grid">
+    <form class="contact-form reveal" id="contactForm" onsubmit="handleSubmit(event)">
+        <!-- Скрытые поля для FormSubmit -->
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_subject" value="Новая заявка с сайта Анны Золотаревой">
+        <input type="hidden" name="_template" value="table">
+
+        <div class="input-group">
+            <input type="text" id="name" name="name" placeholder=" " required>
+            <label for="name">Ваше имя</label>
         </div>
-    </section>
+        <div class="input-group">
+            <input type="email" id="email" name="email" placeholder=" " required>
+            <label for="email">Email</label>
+        </div>
+        <div class="input-group">
+            <input type="tel" id="phone" name="phone" placeholder=" " required>
+            <label for="phone">Телефон</label>
+        </div>
+        <div class="input-group">
+            <textarea id="message" name="message" rows="5" placeholder=" " required></textarea>
+            <label for="message">Опишите проект</label>
+        </div>
+        <button type="submit" class="btn btn-primary btn-ripple" style="width:100%;justify-content:center;">
+            🚀 Отправить заявку
+        </button>
+        <p id="formSuccess" style="display:none;color:#22c55e;font-weight:700;text-align:center;margin-top:12px;">
+            ✅ Заявка отправлена! Я свяжусь с вами в ближайшее время.
+        </p>
+    </form>
+    <div class="reveal" style="display:flex;flex-direction:column;gap:20px;">
+        <div class="card contact-card">
+            <div class="card-icon">📧</div>
+            <h3>Email</h3>
+            <p>
+                <a href="mailto:angara.ilim.1947@mail.ru" class="contact-link">
+                    angara.ilim.1947@mail.ru
+                </a>
+            </p>
+        </div>
+        <div class="card contact-card">
+            <div class="card-icon">📞</div>
+            <h3>Телефон</h3>
+            <p>
+                <a href="tel:+79247131350" class="contact-link">
+                    +7 (924) 713-13-50
+                </a>
+            </p>
+        </div>
+        <div class="card contact-card">
+            <div class="card-icon">💬</div>
+            <h3>Telegram</h3>
+            <p>
+                <a href="https://t.me/keshik_to" target="_blank" class="contact-link">
+                    @keshik_to
+                </a>
+            </p>
+        </div>
+    </div>
+</div>
+</section>
 
     <!-- Footer -->
     <footer class="footer">
