@@ -232,24 +232,49 @@
         });
     });
 
-    // ===== CONTACT FORM =====
-    window.handleSubmit = function(e) {
-        e.preventDefault();
-        const form = document.getElementById('contactForm');
-        const successMsg = document.getElementById('formSuccess');
-        // Simulate submission
-        const btn = form.querySelector('button[type="submit"]');
-        const originalText = btn.textContent;
-        btn.textContent = '⏳ Отправка...';
-        btn.disabled = true;
-        setTimeout(() => {
+   // ===== CONTACT FORM (REAL SUBMIT via FormSubmit) =====
+window.handleSubmit = async function(e) {
+    e.preventDefault();
+    const form = document.getElementById('contactForm');
+    const btn = form.querySelector('button[type="submit"]');
+    const originalText = btn.textContent;
+    const successMsg = document.getElementById('formSuccess');
+
+    // Блокируем кнопку и показываем индикатор
+    btn.textContent = '⏳ Отправка...';
+    btn.disabled = true;
+    successMsg.style.display = 'none';
+
+    // Собираем данные
+    const formData = new FormData(form);
+
+    try {
+        const response = await fetch('https://formsubmit.co/angara.ilim.1947@mail.ru', {
+            method: 'POST',
+            body: formData
+        });
+
+        if (response.ok) {
+            // Успех
             form.reset();
-            btn.textContent = originalText;
-            btn.disabled = false;
             successMsg.style.display = 'block';
-            setTimeout(() => { successMsg.style.display = 'none'; }, 4000);
-        }, 1500);
-    };
+            setTimeout(() => {
+                successMsg.style.display = 'none';
+            }, 6000);
+        } else {
+            // Ошибка сервера
+            alert('⚠️ Произошла ошибка при отправке. Попробуйте позже или напишите на почту напрямую.');
+        }
+    } catch (error) {
+        // Ошибка сети
+        alert('⚠️ Нет соединения с интернетом. Проверьте связь и попробуйте снова.');
+        console.error('Ошибка отправки:', error);
+    } finally {
+        // Возвращаем кнопку в исходное состояние
+        btn.textContent = originalText;
+        btn.disabled = false;
+    }
+};
 
     // ===== SMOOTH SCROLL FOR ALL ANCHOR LINKS =====
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
