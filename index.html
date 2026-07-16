@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Анна Золотарева — Веб-дизайнер</title>
+    <link rel="stylesheet" href="styles.css">
+
+
+</head>
+<body data-theme="light">
+
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-outline" id="cursorOutline"></div>
+
+    <!-- Glow blobs -->
+    <div class="glow-blob glow-blob-1"></div>
+    <div class="glow-blob glow-blob-2"></div>
+    <div class="glow-blob glow-blob-3"></div>
+
+    <!-- Particles -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="nav" id="navbar">
+        <a href="#hero" class="nav-essential active">Главная</a>
+        <a href="#about" class="nav-essential">Обо мне</a>
+        <a href="#portfolio">Портфолио</a>
+        <a href="#pricing" class="nav-essential">Цены</a>
+        <a href="#contact">Контакты</a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">
+            <span class="icon sun">☀️</span>
+            <span class="icon moon">🌙</span>
+        </button>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Меню">☰</button>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <div class="hero-text reveal">
+                <p class="greeting">👋 Привет! Я</p>
+                <h1>Анна <span class="highlight">Золотарева</span></h1>
+                <div class="typing-wrapper">
+                    <span>Я — </span><span class="typing-text" id="typingText"></span>
+                </div>
+                <p style="color:var(--text-secondary);margin-bottom:24px;max-width:480px;">
+                    Создаю современные, удобные и продающие сайты. Более 3 лет опыта в веб-дизайне и разработке интерфейсов.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#pricing" class="btn btn-primary btn-ripple">📋 Смотреть цены</a>
+                    <a href="#contact" class="btn btn-outline">✉️ Связаться</a>
+                </div>
+                <div class="stats-row" style="justify-content:flex-start;margin-top:32px;">
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="120">0</div>
+                        <div class="stat-label">Проектов</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="85">85</div>
+                        <div class="stat-label">Клиентов</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="5">5</div>
+                        <div class="stat-label">Лет опыта</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-photo-wrapper reveal">
+                <div class="photo-frame">
+                    <!-- ЗАМЕНИТЕ src НА СВОЁ ФОТО -->
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=500&fit=crop&crop=face"
+                    alt="Анна Золотарева — веб-дизайнер"
+                    onerror="this.style.display='none';this.nextElementSibling.style.display='block';"
+                    style="display:block;">
+                    <div class="placeholder-img" style="display:none;"></div>
+                </div>
+                <div class="photo-decor d1"></div>
+                <div class="photo-decor d2"></div>
+                <div class="photo-decor d3"></div>
+                <div class="photo-status">
+                    <span class="status-dot"></span> Открыта к проектам
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="section" id="about">
+        <span class="section-label reveal">Обо мне</span>
+        <h2 class="section-title reveal">Почему выбирают меня</h2>
+        <p class="section-subtitle reveal">Сочетаю креативный дизайн с технической точностью, чтобы создавать сайты, которые работают на ваш бизнес.</p>
+        <div class="cards-grid">
+            <div class="card reveal">
+                <div class="card-icon">🎨</div>
+                <h3>Уникальный дизайн</h3>
+                <p>Каждый проект — это индивидуальное решение. Никаких шаблонов, только свежие идеи под ваш бренд.</p>
+            </div>
+            <div class="card reveal">
+                <div class="card-icon">⚡</div>
+                <h3>Быстрая работа</h3>
+                <p>Соблюдаю дедлайны. Лендинг — от 3 дней, полноценный сайт — от 10 дней. Без потери качества.</p>
+            </div>
+            <div class="card reveal">
+                <div class="card-icon">📱</div>
+                <h3>Адаптивная вёрстка</h3>
+                <p>Все сайты отлично выглядят на любых устройствах: смартфонах, планшетах и десктопах.</p>
+            </div>
+            <div class="card reveal">
+                <div class="card-icon">🔍</div>
+                <h3>SEO-оптимизация</h3>
+                <p>Сайты с правильной структурой, мета-тегами и быстрой загрузкой — для высоких позиций в поиске.</p>
+            </div>
+            <div class="card reveal">
+                <div class="card-icon">🤝</div>
+                <h3>Поддержка 24/7</h3>
+                <p>Я на связи даже после сдачи проекта. Помогаю с обновлениями и консультирую бесплатно.</p>
+            </div>
+            <div class="card reveal">
+                <div class="card-icon">💡</div>
+                <h3>Современные технологии</h3>
+                <p>React, Next.js, Framer Motion, Tailwind — использую актуальный стек для лучшего результата.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="section" style="padding-top:0;">
+        <h2 class="section-title reveal">Мои навыки</h2>
+        <div class="reveal" style="max-width:700px;margin:0 auto;">
+            <div class="skill-bar-wrap">
+                <div class="skill-info"><span>UI/UX Дизайн</span><span>95%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="95"></div></div>
+            </div>
+            <div class="skill-bar-wrap">
+                <div class="skill-info"><span>Figma / Sketch</span><span>90%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+            </div>
+            <div class="skill-bar-wrap">
+                <div class="skill-info"><span>HTML / CSS / JS</span><span>92%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="92"></div></div>
+            </div>
+            <div class="skill-bar-wrap">
+                <div class="skill-info"><span>React / Next.js</span><span>80%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+            </div>
+            <div class="skill-bar-wrap">
+                <div class="skill-info"><span>Webflow / Tilda</span><span>88%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+            </div>
+        </div>
+    </section>
+
+   <!-- Portfolio -->
+<section class="section" id="portfolio">
+<span class="section-label reveal">Портфолио</span>
+<h2 class="section-title reveal">Последние проекты</h2>
+<p class="section-subtitle reveal">Каждый проект — это история успеха моих клиентов.</p>
+
+<!-- Фильтры -->
+<div class="portfolio-filters reveal">
+    <button class="filter-btn active" data-filter="all">Все</button>
+    <button class="filter-btn" data-filter="landing">Лендинги</button>
+    <button class="filter-btn" data-filter="corporate">Корпоративные</button>
+    <button class="filter-btn" data-filter="ecommerce">Интернет-магазины</button>
+    <button class="filter-btn" data-filter="other">Другое</button>
+</div>
+
+<div class="portfolio-grid" id="portfolioGrid">
+    <!-- Проект 1 -->
+    <div class="portfolio-item reveal" data-category="ecommerce" data-title="Интернет-магазин «Творчество капибары»" data-description="Полноценный интернет-магазин для продажи товаров ручной работы. Разработана корзина, личный кабинет и система скидок. Интеграция с CRM и эквайрингом." data-link="#">
+        <img class="port-img" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=375&fit=crop" alt="Проект 1" loading="lazy">
+        <div class="portfolio-overlay"><span>🛍️ Интернет-магазин</span></div>
+    </div>
+
+    <!-- Проект 2 -->
+    <div class="portfolio-item reveal" data-category="other" data-title="Телеграм бот «Super Jump»" data-description="Интерактивный бот для обучения прыжкам в высоту. Автоматизированная запись на тренировки, уведомления, обратная связь." data-link="#">
+        <img class="port-img" src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=600&h=375&fit=crop" alt="Проект 2" loading="lazy">
+        <div class="portfolio-overlay"><span>📱 Telegram бот</span></div>
+    </div>
+
+    <!-- Проект 3 -->
+    <div class="portfolio-item reveal" data-category="landing" data-title="Веб-визитка для интеллект-тренера «Super Jump»" data-description="Одностраничный сайт для презентации услуг тренера. Встроена форма захвата, видео-презентация и отзывы клиентов." data-link="#">
+        <img class="port-img" src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=600&h=375&fit=crop" alt="Проект 3" loading="lazy">
+        <div class="portfolio-overlay"><span>🏆 Лендинг тренера</span></div>
+    </div>
+
+    <!-- Проект 4 -->
+    <div class="portfolio-item reveal" data-category="landing" data-title="Лендинг «ArtWave»" data-description="Креативный лендинг для художественной студии. Акцент на визуальном портфолио, анимации и интерактивной галерее." data-link="#">
+        <img class="port-img" src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?w=600&h=375&fit=crop" alt="Проект 4" loading="lazy">
+        <div class="portfolio-overlay"><span>🎨 Лендинг ArtWave</span></div>
+    </div>
+
+    <!-- Проект 5 -->
+    <div class="portfolio-item reveal" data-category="corporate" data-title="Дашборд «Metrica»" data-description="Корпоративный дашборд для аналитики бизнес-показателей. Визуализация данных в реальном времени, настраиваемые отчёты." data-link="#">
+        <img class="port-img" src="https://images.unsplash.com/photo-1559028012-481c04fa702d?w=600&h=375&fit=crop" alt="Проект 5" loading="lazy">
+        <div class="portfolio-overlay"><span>📊 Корпоративный дашборд</span></div>
+    </div>
+
+    <!-- Проект 6 -->
+    <div class="portfolio-item reveal" data-category="corporate" data-title="Сайт детского центра «Я — лидер!»" data-description="Многостраничный сайт для детского образовательного центра. Включает расписание, прайс-лист, блог и онлайн-запись." data-link="#">
+        <img class="port-img" src="https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=600&h=375&fit=crop" alt="Проект 6" loading="lazy">
+        <div class="portfolio-overlay"><span>👶 Сайт детского центра</span></div>
+    </div>
+</div>
+</section>
+
+    <!-- Модальное окно портфолио -->
+    <div class="portfolio-modal" id="portfolioModal">
+    <div class="modal-overlay"></div>
+    <div class="modal-content">
+        <button class="modal-close" id="modalClose" aria-label="Закрыть">&times;</button>
+        <div class="modal-body">
+            <div class="modal-image">
+                <img id="modalImg" src="" alt="Проект">
+            </div>
+            <div class="modal-info">
+                <h3 id="modalTitle">Название проекта</h3>
+                <p id="modalDescription">Описание проекта</p>
+                <a id="modalLink" href="#" class="btn btn-primary" target="_blank">🌐 Смотреть проект</a>
+            </div>
+        </div>
+    </div>
+    </div>
+    
+
+<!-- Pricing -->
+<section class="section" id="pricing">
+<span class="section-label reveal">Прайс-лист</span>
+<h2 class="section-title reveal">Тарифы и цены</h2>
+<p class="section-subtitle reveal">Выберите тип сайта, тариф и получите расчёт стоимости автоматически.</p>
+
+<div class="pricing-calculator reveal">
+    <div class="calculator-card">
+        <div class="calc-header">
+            <h3>⚙️ Настройка проекта</h3>
+            <p>Заполните параметры, и мы рассчитаем стоимость</p>
+        </div>
+        
+        <div class="calc-body">
+            <!-- Выбор услуги -->
+            <div class="calc-group">
+                <label for="serviceType">Тип услуги</label>
+                <select id="serviceType" class="calc-select">
+                    <option value="landing">Лендинг / Сайт-визитка</option>
+                    <option value="corporate">Корпоративный сайт</option>
+                    <option value="ecommerce">Интернет-магазин / Каталог</option>
+                    <option value="updates">Доработка сайта и обновление (разово)</option>
+                    <option value="seo">SEO-поддержка и продвижение</option>
+                    <option value="support">Поддержка сайта после запуска</option>
+                </select>
+                <div class="service-description" id="serviceDescription">
+                    Одностраничный сайт для презентации товара или услуги. Идеально для старта.
+                </div>
+            </div>
+
+            <!-- Выбор тарифа (показывается только для landing, corporate, ecommerce, support) -->
+            <div class="calc-group" id="tariffGroup">
+                <label for="tariffType">Выберите тариф</label>
+                <select id="tariffType" class="calc-select">
+                    <option value="basic">Базовый — минимальная цена</option>
+                    <option value="pro" selected>PRO — расширенный SEO и поддержка</option>
+                    <option value="premium">Премиум — максимальный пакет</option>
+                </select>
+                <div class="tariff-description" id="tariffDescription">
+                    Улучшенное SEO, 3 месяца поддержки, базовый дизайн.
+                </div>
+            </div>
+
+            <!-- НОВОЕ: Срочность -->
+            <div class="calc-group" id="urgencyGroup">
+                <label>Срочность</label>
+                <div class="urgency-btns">
+                    <button class="urgency-btn active" data-urgency="normal">Обычный</button>
+                    <button class="urgency-btn" data-urgency="fast">Срочный (+30%)</button>
+                    <button class="urgency-btn" data-urgency="very-fast">Очень срочный (+60%)</button>
+                </div>
+                <div class="urgency-description" id="urgencyDescription">Стандартные сроки разработки</div>
+            </div>
+
+            <!-- НОВОЕ: Язык -->
+            <div class="calc-group" id="languageGroup">
+                <label>Язык сайта</label>
+                <div class="language-btns">
+                    <button class="language-btn active" data-lang="ru">Русский</button>
+                    <button class="language-btn" data-lang="en">English (+20%)</button>
+                    <button class="language-btn" data-lang="multi">Многоязычный (+50%)</button>
+                </div>
+                <div class="language-description" id="languageDescription">Сайт на русском языке</div>
+            </div>
+
+            <!-- НОВОЕ: Количество страниц (только для corporate и ecommerce) -->
+            <div class="calc-group" id="pagesOptions" style="display:none;">
+                <label>Количество страниц</label>
+                <div class="pages-btns">
+                    <button class="pages-btn active" data-pages="1-5">1–5 страниц</button>
+                    <button class="pages-btn" data-pages="6-10">6–10 страниц</button>
+                    <button class="pages-btn" data-pages="11-20">11–20 страниц</button>
+                    <button class="pages-btn" data-pages="21+">21+ страниц</button>
+                </div>
+                <div class="pages-description" id="pagesDescription">Базовая цена включает до 5 страниц</div>
+            </div>
+
+            <!-- Дополнительные опции для доработки -->
+            <div class="calc-group" id="updatesOptions" style="display:none;">
+                <label>Что нужно изменить?</label>
+                <div class="checkbox-grid">
+                    <label class="checkbox-item">
+                        <input type="checkbox" class="update-check" value="500" data-name="Дизайн">
+                        <span>🎨 Дизайн</span>
+                        <small>+500 ₽</small>
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" class="update-check" value="800" data-name="Вёрстка">
+                        <span>📐 Вёрстка</span>
+                        <small>+800 ₽</small>
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" class="update-check" value="400" data-name="Контент">
+                        <span>📝 Контент</span>
+                        <small>+400 ₽</small>
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" class="update-check" value="600" data-name="Функционал">
+                        <span>⚡ Функционал</span>
+                        <small>+600 ₽</small>
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" class="update-check" value="1000" data-name="Адаптив">
+                        <span>📱 Адаптив</span>
+                        <small>+1000 ₽</small>
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" class="update-check" value="1200" data-name="SEO-настройка">
+                        <span>🔍 SEO-настройка</span>
+                        <small>+1200 ₽</small>
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" class="update-check" value="700" data-name="Скорость загрузки">
+                        <span>🚀 Скорость загрузки</span>
+                        <small>+700 ₽</small>
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" class="update-check" value="1500" data-name="Интеграция">
+                        <span>🔗 Интеграция с сервисами</span>
+                        <small>+1500 ₽</small>
+                    </label>
+                </div>
+                <div class="selected-updates" id="selectedUpdates">
+                    <span>Выбрано: <strong id="updatesCount">0</strong> элементов</span>
+                </div>
+            </div>
+
+            <!-- Дополнительные опции для SEO -->
+            <div class="calc-group" id="seoOptions" style="display:none;">
+                <label>Количество страниц для SEO-оптимизации</label>
+                <div class="seo-pages">
+                    <button class="seo-page-btn" data-pages="5">5 страниц</button>
+                    <button class="seo-page-btn" data-pages="10">10 страниц</button>
+                    <button class="seo-page-btn active" data-pages="20">20 страниц</button>
+                    <button class="seo-page-btn" data-pages="50">50 страниц</button>
+                    <button class="seo-page-btn" data-pages="100">100+ страниц</button>
+                </div>
+                <div class="seo-additional">
+                    <label class="checkbox-item">
+                        <input type="checkbox" id="seoContent" value="5000">
+                        <span>📝 Написание SEO-текстов</span>
+                        <small>+5000 ₽</small>
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" id="seoAudit" value="8000">
+                        <span>📊 Аудит и анализ конкурентов</span>
+                        <small>+8000 ₽</small>
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" id="seoLinks" value="10000">
+                        <span>🔗 Ссылочное продвижение</span>
+                        <small>+10000 ₽</small>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Вывод цены -->
+            <div class="calc-result">
+                <div class="price-block">
+                    <span class="price-label">Примерная стоимость</span>
+                    <span class="price-value" id="totalPrice">80 000 ₽</span>
+                </div>
+                <div class="price-details" id="priceDetails">
+                    <span class="detail-item">✔ Уникальный дизайн</span>
+                    <span class="detail-item">✔ Адаптивная вёрстка</span>
+                    <span class="detail-item">✔ Расширенное SEO</span>
+                    <span class="detail-item">✔ 3 месяца поддержки</span>
+                </div>
+                <button class="btn btn-primary btn-ripple" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+                    🚀 Заказать сейчас
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Дополнительная информация -->
+    <div class="calculator-info">
+        <div class="info-card">
+            <div class="info-icon">📋</div>
+            <h4>Что входит в стоимость?</h4>
+            <ul>
+                <li>✓ Уникальный дизайн под ваш бренд</li>
+                <li>✓ Адаптивная вёрстка под все устройства</li>
+                <li>✓ Базовая SEO-оптимизация</li>
+                <li>✓ Настройка форм и обратной связи</li>
+                <li>✓ Подключение аналитики</li>
+            </ul>
+        </div>
+        <div class="info-card">
+            <div class="info-icon">⏱️</div>
+            <h4>Сроки разработки</h4>
+            <ul>
+                <li>⚡ Лендинг — от 3 дней</li>
+                <li>📄 Корпоративный — от 10 дней</li>
+                <li>🛒 Интернет-магазин — от 20 дней</li>
+                <li>🔧 Доработки — от 1 дня</li>
+                <li>📊 SEO-продвижение — от 2 недель</li>
+            </ul>
+        </div>
+    </div>
+</div>
+</section>
+    <!-- Contact -->
+    <section class="section" id="contact">
+        <span class="section-label reveal">Контакты</span>
+        <h2 class="section-title reveal">Давайте обсудим проект</h2>
+        <div class="contact-grid">
+            <form class="contact-form reveal" id="contactForm" onsubmit="handleSubmit(event)">
+                <div class="input-group">
+                    <input type="text" id="name" placeholder=" " required>
+                    <label for="name">Ваше имя</label>
+                </div>
+                <div class="input-group">
+                    <input type="email" id="email" placeholder=" " required>
+                    <label for="email">Email</label>
+                </div>
+                <div class="input-group">
+                    <input type="tel" id="phone" placeholder=" " required>
+                    <label for="phone">Телефон</label>
+                </div>
+                <div class="input-group">
+                    <textarea id="message" rows="5" placeholder=" " required></textarea>
+                    <label for="message">Опишите проект</label>
+                </div>
+                <button type="submit" class="btn btn-primary btn-ripple" style="width:100%;justify-content:center;">
+                    🚀 Отправить заявку
+                </button>
+                <p id="formSuccess" style="display:none;color:#22c55e;font-weight:700;text-align:center;margin-top:12px;">
+                    ✅ Заявка отправлена! Я свяжусь с вами в ближайшее время.
+                </p>
+            </form>
+            <div class="reveal" style="display:flex;flex-direction:column;gap:20px;">
+                <div class="card">
+                    <div class="card-icon">📧</div>
+                    <h3>Email</h3>
+                    <p style="color:var(--accent);">angara.ilim.1947@mail.ru</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📞</div>
+                    <h3>Телефон</h3>
+                    <p style="color:var(--accent);">+7 (924) 713-13-50</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">💬</div>
+                    <h3>Telegram</h3>
+                    <p style="color:var(--accent);">@keshik_to</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2026 Анна Золотарева — Веб-дизайнер. Все права защищены.</p>
+        <p style="margin-top:4px;">Сделано с ❤️ и вниманием к деталям</p>
+    </footer>
+
+    <!-- Back to top -->
+    <button class="back-to-top" id="backToTop" aria-label="Наверх">↑</button>
+
+
+<script defer src="script.js"></script>
+  </body>
+</html>
